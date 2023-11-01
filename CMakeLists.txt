@@ -7,4 +7,6 @@ add_executable(labwork3_onekram
         main.cpp
         parser.h
         parser.cpp
-        tsv_reader.cpp)
+        tsv_reader.cpp
+        tsv_reader.h
+        data.tsv)
