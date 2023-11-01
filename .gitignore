@@ -31,4 +31,11 @@
 *.out
 *.app
 
+# Cmake building directories
 cmake-build-debug
+
+# TSV files
+*.tsv
+
+# BMP files
+*.bmp
