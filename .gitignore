@@ -39,3 +39,6 @@ cmake-build-debug
 
 # BMP files
 *.bmp
+
+# IDE directory
+.idea
