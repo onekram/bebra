@@ -8,8 +8,8 @@
 
 int main(int argc, char** argv) {
     Param parameters = parsingValues(argc, argv);
-    Point* pointNet = readFile(parameters.filenameInput);
+    PointNet pointNet = readFile(parameters.filenameInput);
     for (int i = 0; i < 3; ++i) {
-        std::cout << pointNet[i].x << " " << pointNet[i].y << " " << pointNet[i].value << std::endl;
+        std::cout << pointNet.getPoint(i).x << " " << pointNet.getPoint(i).y << " " << pointNet.getPoint(i).value << std::endl;
     }
 }

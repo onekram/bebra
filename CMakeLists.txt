@@ -9,4 +9,6 @@ add_executable(labwork3_onekram
         parser.cpp
         tsv_reader.cpp
         tsv_reader.h
-        data.tsv)
+        data.tsv
+        PointNet.h
+        PointNet.cpp)

@@ -52,17 +52,6 @@ void putToPoint(Point& point, const int index, const char* value) {
     }
 }
 
-uint64_t putPoint(Point*& pointNet, const Point& point, const uint64_t index, uint64_t size) {
-    if (index + 1 > size) {
-        size *= 2;
-        auto* pointNetExt = new Point[size];
-        std::memcpy(pointNetExt, pointNet, size);
-        pointNet = pointNetExt;
-    }
-    pointNet[index] = point;
-    return size;
-}
-
 
 Point parsingLine(const char* line, int length) {
     Point point{};
@@ -85,10 +74,10 @@ Point parsingLine(const char* line, int length) {
     }
     return point;
 }
-Point* readFile(const char* filenameInput) {
+PointNet readFile(const char* filenameInput) {
     uint64_t size = 100;
     uint64_t index = 0;
-    auto* pointNet = new Point[size];
+    auto points = PointNet(size);
     std::ifstream in{filenameInput, std::ios::in};
     if (!in.is_open()) {
         std::cerr << "File no found " << filenameInput << std::endl;
@@ -97,7 +86,7 @@ Point* readFile(const char* filenameInput) {
 
     for (char line[kMaxLineLength]; in.getline(line, kMaxLineLength, '\n'); index++) {
         Point point = parsingLine(line, (int)strlen(line));
-        size = putPoint(pointNet, point, index, size);
+        points.putPoint(point, index);
     }
-    return pointNet;
+    return points;
 }

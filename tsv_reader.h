@@ -9,10 +9,6 @@
 
 #endif //LABWORK3_ONEKRAM_TSV_READER_H
 
-struct Point {
-    int16_t x, y;
-    uint64_t value;
-};
+#include "PointNet.h"
 
-Point* readFile(const char* filenameInput);
-
+PointNet readFile(const char* filenameInput);
