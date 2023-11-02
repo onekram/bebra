@@ -8,14 +8,15 @@
 #endif //LABWORK3_ONEKRAM_POINTNET_H
 
 
-
 #include <cstdint>
 #include <cstring>
 
+#pragma pack(push, 4)
 struct Point {
     int16_t x, y;
     uint64_t value;
 };
+#pragma pack(pop)
 
 
 class PointNet {
