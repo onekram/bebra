@@ -12,3 +12,5 @@
 #include "PointNet.h"
 
 PointNet readFile(const char* filenameInput);
+void makeBMP(PointNet& pointNet, int iter);
+

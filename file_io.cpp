@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
-#include "tsv_reader.h"
+#include "file_io.h"
 
 
 const int kMaxLineLength = 25;
@@ -75,7 +75,7 @@ Point parsingLine(const char* line, int length) {
     return point;
 }
 PointNet readFile(const char* filenameInput) {
-    uint64_t size = 100;
+    uint64_t size = 1 << 10;
     uint64_t index = 0;
     auto points = PointNet(size);
     std::ifstream in{filenameInput, std::ios::in};
@@ -86,7 +86,11 @@ PointNet readFile(const char* filenameInput) {
 
     for (char line[kMaxLineLength]; in.getline(line, kMaxLineLength, '\n'); index++) {
         Point point = parsingLine(line, (int)strlen(line));
-        points.putPoint(point, index);
+        std::cout << point.x << " " << point.y << std::endl;
+        points.putPoint(point);
+        std::cout << points.getPoint(points.getSize() - 1).x << " " << points.getPoint(points.getSize() - 1).y << "get" << std::endl;
     }
+    std::cout << points.getPoint(0).x << " " << points.getPoint(0).y << "get" << std::endl;
+
     return points;
 }

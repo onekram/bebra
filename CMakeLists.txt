@@ -7,8 +7,10 @@ add_executable(labwork3_onekram
         main.cpp
         parser.h
         parser.cpp
-        tsv_reader.cpp
-        tsv_reader.h
+        file_io.cpp
+        file_io.h
         data.tsv
         PointNet.h
-        PointNet.cpp)
+        PointNet.cpp
+        bmp_make.cpp
+)
